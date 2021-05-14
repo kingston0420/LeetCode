@@ -3,26 +3,22 @@ Given a signed 32-bit integer x, return x with its digits reversed. If reversing
 
 Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
 
- 
-
 Example 1:
-
 Input: x = 123
 Output: 321
-Example 2:
 
+Example 2:
 Input: x = -123
 Output: -321
-Example 3:
 
+Example 3:
 Input: x = 120
 Output: 21
-Example 4:
 
+Example 4:
 Input: x = 0
 Output: 0
  
-
 Constraints:
 
 -231 <= x <= 231 - 1
@@ -31,11 +27,9 @@ Constraints:
 class Solution {
     public int reverse(int x) {
         long output = 0;
-        int digit = 0;
         while (x != 0) {
-            digit = x%10;
+            output = output*10 + x%10;
             x = x/10;
-            output = output*10 + digit; 
         }
         if((output>= Integer.MIN_VALUE) && (output<= Integer.MAX_VALUE)) {
                 return (int)output; 
@@ -44,4 +38,6 @@ class Solution {
             }
     }
 }
+//Time: O(log(X)). there are roughly log10(x) digits in x
+//Space: O(1)
 
