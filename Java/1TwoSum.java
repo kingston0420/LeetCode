@@ -1,20 +1,3 @@
-
-class Solution {
-    public int[] twoSum(int[] nums, int target) {
-        int[] result = {0, 0};
-        for (int i=0; i<nums.length; i++) {
-            for (int j=i+1; j<nums.length; j++) {
-                if (nums[i]+nums[j] == target){
-                    result[0] = i;
-                    result[1] = j;
-                    return result;
-                }
-            }
-        }
-        return result;
-    }
-}
-
 /*Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
@@ -44,4 +27,42 @@ Constraints:
 -109 <= nums[i] <= 109
 -109 <= target <= 109
 Only one valid answer exists. 
+*/
+
+//One-pass Hash Table
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> map= new HashMap<>();
+        for (int i=0; i<nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement)) {
+                return new int[] {map.get(complement), i};
+            }
+            else {
+                map.put(nums[i], i);
+            } 
+        }
+        return new int[] {0,0};
+    }
+}
+
+
+
+//brute force
+/*
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] result = {0, 0};
+        for (int i=0; i<nums.length; i++) {
+            for (int j=i+1; j<nums.length; j++) {
+                if (nums[i]+nums[j] == target){
+                    result[0] = i;
+                    result[1] = j;
+                    return result;
+                }
+            }
+        }
+        return result;
+    }
+}
 */
