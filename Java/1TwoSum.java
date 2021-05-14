@@ -45,6 +45,8 @@ class Solution {
         return new int[] {0,0};
     }
 }
+//Time: O(N)
+//Space: O(N)
 
 
 
@@ -66,3 +68,5 @@ class Solution {
     }
 }
 */
+//Time: O(N^2) 
+//Space: O(1) 
