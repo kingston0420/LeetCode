@@ -1,31 +1,3 @@
-class Solution {
-    public int romanToInt(String s) {
-        
-        Map<Character, Integer> roman = new HashMap<Character, Integer>();
-	    roman.put('I', 1);
-	    roman.put('V', 5);
-	    roman.put('X', 10);
-	    roman.put('L', 50);
-	    roman.put('C', 100);
-	    roman.put('D', 500);
-	    roman.put('M', 1000);
-        
-        int prev = roman.get(s.charAt(0));
-        int total = 0;
-        
-        for (int i=1; i<s.length(); i++) {
-            if (prev < roman.get(s.charAt(i))) {
-                total -= prev;
-            } else {
-                total += prev;
-            }
-            prev = roman.get(s.charAt(i));
-        }
-        total += roman.get(s.charAt(s.length()-1));
-        return total;
-    } 
-}
-
 /*
 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 
@@ -78,3 +50,33 @@ Constraints:
 s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').
 It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 */
+class Solution {
+    public int romanToInt(String s) {
+        
+        Map<Character, Integer> roman = new HashMap<Character, Integer>();
+	    roman.put('I', 1);
+	    roman.put('V', 5);
+	    roman.put('X', 10);
+	    roman.put('L', 50);
+	    roman.put('C', 100);
+	    roman.put('D', 500);
+	    roman.put('M', 1000);
+        
+        int prev = roman.get(s.charAt(0));
+        int total = 0;
+        
+        for (int i=1; i<s.length(); i++) {
+            if (prev < roman.get(s.charAt(i))) {
+                total -= prev;
+            } else {
+                total += prev;
+            }
+            prev = roman.get(s.charAt(i));
+        }
+        total += roman.get(s.charAt(s.length()-1));
+        return total;
+    } 
+}
+
+//Time: O(N) where N is the length of the input digit
+//Space: O(1)
