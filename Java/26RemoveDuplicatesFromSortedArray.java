@@ -1,16 +1,3 @@
-class Solution {
-    public int removeDuplicates(int[] nums) {
-        int j = 0;
-        for (int i=1; i<nums.length; i++) {
-            if (nums[i] != nums[j]) {
-                j++;
-                nums[j] = nums[i];
-            }
-        } 
-        return j+1;
-    }
-}
-
 /*
 Given a sorted array nums, remove the duplicates in-place such that each element appears only once and returns the new length.
 
@@ -52,3 +39,18 @@ Constraints:
 -104 <= nums[i] <= 104
 nums is sorted in ascending order.
 */
+
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int j = 0;
+        for (int i=1; i<nums.length; i++) {
+            if (nums[i] != nums[j]) {
+                j++;
+                nums[j] = nums[i];
+            }
+        } 
+        return j+1;
+    }
+}
+//Time: O(N)
+//Space: O(1)
