@@ -1,25 +1,3 @@
-class Solution {
-    public void merge(int[] nums1, int m, int[] nums2, int n) {
-        int indexA = m-1; //last index of nums1;
-        int indexB = n-1; //last index of nums2;
-        int indexMerged = m+n-1; //last index of nums1+nums2;
-        
-        while(indexB >= 0)
-		{
-			if( indexA >=0 && nums1[indexA] > nums2[indexB])
-			{
-				nums1[indexMerged] = nums1[indexA];  //cop element from num1
-				indexA--;
-			}
-			else{
-				 nums1[indexMerged] = nums2[indexB]; //cop element from nums2
-				 indexB--;
-			}
-        indexMerged--; //move indices 
-        }
-    }
-}
-
 /*
 Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
 
@@ -45,3 +23,26 @@ nums2.length == n
 1 <= m + n <= 200
 -109 <= nums1[i], nums2[i] <= 109
 */
+
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int indexA = m-1; //last index of nums1;
+        int indexB = n-1; //last index of nums2;
+        int indexMerged = m+n-1; //last index of nums1+nums2;
+        
+        while(indexB >= 0)
+		{
+			if( indexA >=0 && nums1[indexA] > nums2[indexB])
+			{
+				nums1[indexMerged] = nums1[indexA];  //cop element from num1
+				indexA--;
+			}
+			else{
+				 nums1[indexMerged] = nums2[indexB]; //cop element from nums2
+				 indexB--;
+			}
+        indexMerged--; //move indices 
+        }
+    }
+}
+
