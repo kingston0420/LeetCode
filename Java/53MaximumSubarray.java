@@ -1,21 +1,3 @@
-class Solution {
-    public int maxSubArray(int[] nums) {
-        int maxSum = nums[0];
-        int currSum = 0;
-        for (int i=0; i<nums.length; i++) {
-            if (currSum<0) {
-                currSum = nums[i];
-            } else {
-                currSum += nums[i];
-            }
-            if (currSum>maxSum) {
-                maxSum = currSum;
-            }
-        }
-        return maxSum;
-    }
-}
-
 /*
 Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
 
@@ -44,3 +26,22 @@ Constraints:
 
 Follow up: If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
 */
+
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int maxSum = nums[0];
+        int currSum = 0;
+        for (int i=0; i<nums.length; i++) {
+            if (currSum<0) {
+                currSum = nums[i];
+            } else {
+                currSum += nums[i];
+            }
+            if (currSum>maxSum) {
+                maxSum = currSum;
+            }
+        }
+        return maxSum;
+    }
+}
+
